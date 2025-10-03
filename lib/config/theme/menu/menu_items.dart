@@ -22,7 +22,7 @@ const appMenuItems = <MenuItem>[
     icon: Icons.smart_button_outlined,
   ),
   MenuItem(
-    title: 'Botones',
+    title: 'Tarjetas',
     subTitle: 'Un contenedor estilizado',
     link: '/butones',
     icon: Icons.credit_card,
