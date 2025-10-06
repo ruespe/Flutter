@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/config/theme/menu/menu_items.dart';
 import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
+import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
 import 'package:go_router/go_router.dart';
 
-
 class HomeScreen extends StatelessWidget {
+  static const name = '/';
+
   const HomeScreen({super.key});
 
   @override
@@ -52,3 +54,5 @@ class _CustomListTile extends StatelessWidget {
     );
   }
 }
+
+
