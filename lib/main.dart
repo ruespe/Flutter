@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/config/router/app_router.dart';
-import 'package:widgets_app/presentation/screens/home/home_screen.dart';
+import 'package:widgets_app/presentation/screens/progress/progress_screen.dart';
 import '/config/theme/app_theme.dart';
-
 void main() {
   runApp(const MainApp());
 }
