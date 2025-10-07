@@ -49,6 +49,8 @@ class _ButtonsView extends StatelessWidget {
               icon: const Icon(Icons.account_circle_outlined),
               label: const Text('Filled Icon'),
             ),
+            const CustomButton(),
+
             OutlinedButton(onPressed: () {}, child: const Text('Outlined')),
             OutlinedButton.icon(
               onPressed: () {},
@@ -65,11 +67,40 @@ class _ButtonsView extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(Icons.volume_up_rounded),
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.blue.shade100), // MaterialStateProperty.all is deprecated usar nueva versión
+                backgroundColor: WidgetStatePropertyAll(
+                  Colors.blue.shade100,
+                ), // MaterialStateProperty.all is deprecated usar nueva versión
                 iconColor: const WidgetStatePropertyAll(Colors.blue),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      //margin: const EdgeInsets.only(left: 10,right: 10,top: 10,bottom: 10),
+      child: Material(
+        color: colors.primary,
+        borderRadius: BorderRadius.circular(20),
+        child: InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10.5,
+              horizontal: 10.5,
+            ),
+            child: Text('Hola Mundo'),
+          ),
         ),
       ),
     );
