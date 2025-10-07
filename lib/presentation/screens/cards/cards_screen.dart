@@ -39,6 +39,14 @@ class _CardsView extends StatelessWidget {
             (card) =>
                 _CardType2(elevation: card['elevation'], label: card['label']),
           ),
+          ...cards.map(
+            (card) =>
+                _CardType3(elevation: card['elevation'], label: card['label']),
+          ),
+          ...cards.map(
+            (card) =>
+                _CardType4(elevation: card['elevation'], label: card['label']),
+          ),
         ],
       ),
     );
@@ -82,17 +90,14 @@ class _CardType2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final colors = Theme.of(context).colorScheme;
 
     return Card(
       elevation: elevation,
-      shape: RoundedRectangleBorder( // <-- Esto dibuja el borde
+      shape: RoundedRectangleBorder(
+        // <-- Esto dibuja el borde
         borderRadius: BorderRadius.all(Radius.circular(20)),
-        side: BorderSide(
-          color: colors.outline,
-          width: 10,
-        ),
+        side: BorderSide(color: colors.outline, width: 10),
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
@@ -105,10 +110,88 @@ class _CardType2 extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            Align(alignment: Alignment.centerLeft, child: Text('$label - outline')
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('$label - outline'),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _CardType3 extends StatelessWidget {
+  final String label;
+  final double elevation;
+
+  const _CardType3({required this.label, required this.elevation});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return Card(
+      color: colors.surfaceContainerHighest, // añade color de fondo
+      elevation: elevation,
+      shape: RoundedRectangleBorder(
+        // <-- Esto dibuja el borde
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        side: BorderSide(color: colors.outline, width: 5),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: Icon(Icons.more_vert_outlined),
+                onPressed: () {},
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('$label - outline'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CardType4 extends StatelessWidget {
+  final String label;
+  final double elevation;
+
+  const _CardType4({required this.label, required this.elevation});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return Card(
+      color: colors.surfaceContainerHighest, // añade color de fondo
+      shape: RoundedRectangleBorder(
+        // <-- Esto dibuja el borde
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        side: BorderSide(color: colors.outline, width: 5),
+      ),
+      child: Stack(
+        children: [
+          Image.network(
+            'https://controlcat.cat/wp-content/uploads/2022/06/controlcat-logotip-bn-negatiu-e1654924179591.png',
+            fit: BoxFit.cover,
+          ),
+      
+          Align(
+            alignment: Alignment.topRight,
+            ),
+          Align(
+            alignment: Alignment.centerLeft,
+          ),
+        ],
       ),
     );
   }
